@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = InvestmentManagement.Tests
+build_property.ProjectDir = C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Tests\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

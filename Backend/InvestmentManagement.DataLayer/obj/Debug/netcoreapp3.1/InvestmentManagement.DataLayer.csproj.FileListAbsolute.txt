@@ -1,0 +1,17 @@
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.deps.json
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.runtimeconfig.json
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.runtimeconfig.dev.json
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.dll
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.pdb
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\InvestmentManagement.Entities.dll
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\InvestmentManagement.Entities.pdb
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.csproj.AssemblyReference.cache
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.AssemblyInfoInputs.cache
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.AssemblyInfo.cs
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.csproj.CoreCompileInputs.cache
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\Investme.54E4099F.Up2Date
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.dll
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.pdb
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\obj\Debug\netcoreapp3.1\InvestmentManagement.DataLayer.genruntimeconfig.cache
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.DataLayer\bin\Debug\netcoreapp3.1\appsettings.json

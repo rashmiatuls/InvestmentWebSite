@@ -1,0 +1,13 @@
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\bin\Debug\netcoreapp3.1\InvestmentManagement.Entities.deps.json
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\bin\Debug\netcoreapp3.1\InvestmentManagement.Entities.runtimeconfig.json
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\bin\Debug\netcoreapp3.1\InvestmentManagement.Entities.runtimeconfig.dev.json
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\bin\Debug\netcoreapp3.1\InvestmentManagement.Entities.dll
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\bin\Debug\netcoreapp3.1\InvestmentManagement.Entities.pdb
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.csproj.AssemblyReference.cache
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.AssemblyInfoInputs.cache
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.AssemblyInfo.cs
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.csproj.CoreCompileInputs.cache
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.dll
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.pdb
+C:\Code\InvestmentB\PROJECT\Backend\InvestmentManagement.Entities\obj\Debug\netcoreapp3.1\InvestmentManagement.Entities.genruntimeconfig.cache
