@@ -60,7 +60,7 @@ namespace InvestmentManagement.Tests.TestCases
 
 
         [Fact]
-        public async Task<bool> Testfor_Validate_IfInvalidInvestorIdIsPassed()
+        public async Task Testfor_Validate_IfInvalidInvestorIdIsPassed()
         {
             //Arrange
             bool res = false;
@@ -83,7 +83,7 @@ namespace InvestmentManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                return ;
             }
             status = Convert.ToString(res);
             if (res == true)
@@ -95,12 +95,12 @@ namespace InvestmentManagement.Tests.TestCases
                 _output.WriteLine(testName + ":Failed");
             }
             await CallAPI.saveTestResult(testName, status, type);
-            return res;
+            return ;
         }
 
 
         [Fact]
-        public async Task<bool> Testfor_Validate_IfInvalidInvestmentIdIsPassed()
+        public async Task Testfor_Validate_IfInvalidInvestmentIdIsPassed()
         {
             //Arrange
             bool res = false;
@@ -123,7 +123,7 @@ namespace InvestmentManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                return ;
             }
             status = Convert.ToString(res);
             if (res == true)
@@ -135,7 +135,7 @@ namespace InvestmentManagement.Tests.TestCases
                 _output.WriteLine(testName + ":Failed");
             }
             await CallAPI.saveTestResult(testName, status, type);
-            return res;
+            return ;
         }
 
     }

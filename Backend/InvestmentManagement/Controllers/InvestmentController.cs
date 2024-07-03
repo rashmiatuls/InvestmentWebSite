@@ -13,6 +13,7 @@ namespace InvestmentManagement.Controllers
     public class InvestmentController : ControllerBase
     {
         private readonly IInvestmentService _investmentService;
+        
         public InvestmentController(IInvestmentService investmentService)
         {
             _investmentService = investmentService;
@@ -23,67 +24,62 @@ namespace InvestmentManagement.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> CreateInvestment([FromBody] Investment model)
         {
-            var InvestmentExists = await _investmentService.GetInvestmentById(model.InvestmentId);
-            if (InvestmentExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Investment already exists!" });
+            if (!ModelState.IsValid)
+                return BadRequest(new Response { Status = "Error", Message = "Invalid data!" });
+
+           // var investmentExists = await _investmentService.GetInvestmentById(model.InvestmentId);
+            //if (investmentExists != null)
+               // return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Investment already exists!" });
+
             var result = await _investmentService.CreateInvestment(model);
             if (result == null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Investment creation failed! Please check details and try again." });
 
             return Ok(new Response { Status = "Success", Message = "Investment created successfully!" });
-
         }
-
 
         [HttpPut]
         [Route("update-investment")]
         public async Task<IActionResult> UpdateInvestment([FromBody] InvestmentViewModel model)
         {
-            var Investment = await _investmentService.UpdateInvestment(model);
-            if (Investment == null)
+            if (!ModelState.IsValid)
+                return BadRequest(new Response { Status = "Error", Message = "Invalid data!" });
+
+            var investment = await _investmentService.GetInvestmentById(model.InvestmentId);
+            if (investment == null)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response
-                { Status = "Error", Message = $"Investment With Id = {model.InvestmentId} cannot be found" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = $"Investment with Id = {model.InvestmentId} cannot be found" });
             }
-            else
-            {
-                var result = await _investmentService.UpdateInvestment(model);
-                return Ok(new Response { Status = "Success", Message = "Investment updated successfully!" });
-            }
+
+            var result = await _investmentService.UpdateInvestment(model);
+            return Ok(new Response { Status = "Success", Message = "Investment updated successfully!" });
         }
 
         [HttpDelete]
-        [Route("delete-Investment")]
+        [Route("delete-investment")]
         public async Task<IActionResult> DeleteInvestment(long id)
         {
-            var Investment = await _investmentService.GetInvestmentById(id);
-            if (Investment == null)
+            var investment = await _investmentService.GetInvestmentById(id);
+            if (investment == null)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response
-                { Status = "Error", Message = $"Investment With Id = {id} cannot be found" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = $"Investment with Id = {id} cannot be found" });
             }
-            else
-            {
-                var result = await _investmentService.DeleteInvestmentById(id);
-                return Ok(new Response { Status = "Success", Message = "Investment deleted successfully!" });
-            }
+
+            var result = await _investmentService.DeleteInvestmentById(id);
+            return Ok(new Response { Status = "Success", Message = "Investment deleted successfully!" });
         }
 
-
         [HttpGet]
-        [Route("get-Investment-by-id")]
+        [Route("get-investment-by-id")]
         public async Task<IActionResult> GetInvestmentById(long id)
         {
-            var Investment = await _investmentService.GetInvestmentById(id);
-            if (Investment == null)
+            var investment = await _investmentService.GetInvestmentById(id);
+            if (investment == null)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response
-                { Status = "Error", Message = $"Investment With Id = {id} cannot be found" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = $"Investment with Id = {id} cannot be found" });
             }
-            else
-            {
-                return Ok(Investment);
-            }
+
+            return Ok(investment);
         }
 
         [HttpGet]

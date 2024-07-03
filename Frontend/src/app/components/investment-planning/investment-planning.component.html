@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Investment Planning</h1>
+    <h2>All Investments</h2>
+    <ul>
+      <li *ngFor="let investment of investments">
+        {{ investment.investmentName }} - {{ investment.initialInvestmentAmount }} - {{ investment.investmentStartDate | date:'MMM d, y' }} - {{ investment.currentValue }} - {{ investment.investorId }}
+        <button *ngIf="investment.investmentId !== undefined" (click)="handleEditInvestment(investment.investmentId)">Edit</button>
+        <button *ngIf="investment.investmentId !== undefined" (click)="handleDeleteInvestment(investment.investmentId)">Delete</button>
+      </li>
+    </ul>
+  
+    <h2>Create/Update Investment</h2>
+    <form [formGroup]="investmentForm">
+      <div>
+        <label for="investmentName">Investment Name:</label>
+        <input id="investmentName" formControlName="investmentName" />
+      </div>
+      <div>
+        <label for="initialInvestmentAmount">Initial Amount:</label>
+        <input id="initialInvestmentAmount" formControlName="initialInvestmentAmount" type="number" />
+      </div>
+      <div>
+        <label for="investmentStartDate">Start Date:</label>
+        <input id="investmentStartDate" formControlName="investmentStartDate" type="date" />
+      </div>
+      <div>
+        <label for="currentValue">Current Value:</label>
+        <input id="currentValue" formControlName="currentValue" type="number" />
+      </div>
+      <div>
+        <label for="investorId">Investor ID:</label>
+        <input id="investorId" formControlName="investorId" type="number" />
+      </div>
+      <div>
+        <button [disabled]="isCreateButtonDisabled()" (click)="isEditMode ? handleUpdateInvestment() : handleCreateInvestment()">
+          {{ isEditMode ? 'Update' : 'Create' }}
+        </button>
+      </div>
+    </form>
+  
+    <div *ngIf="responseMessage">{{ responseMessage }}</div>
+  </div>
+  
