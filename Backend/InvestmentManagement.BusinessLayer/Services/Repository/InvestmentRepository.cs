@@ -4,7 +4,6 @@ using InvestmentManagement.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace InvestmentManagement.BusinessLayer.Services.Repository
@@ -12,6 +11,7 @@ namespace InvestmentManagement.BusinessLayer.Services.Repository
     public class InvestmentRepository : IInvestmentRepository
     {
         private readonly InvestmentDbContext _dbContext;
+
         public InvestmentRepository(InvestmentDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -23,11 +23,11 @@ namespace InvestmentManagement.BusinessLayer.Services.Repository
             {
                 var result = await _dbContext.Investments.AddAsync(investment);
                 await _dbContext.SaveChangesAsync();
-                return investment;
+                return result.Entity;
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw new Exception("Error creating investment.", ex);
             }
         }
 
@@ -35,13 +35,17 @@ namespace InvestmentManagement.BusinessLayer.Services.Repository
         {
             try
             {
-                _dbContext.Remove(_dbContext.Investments.Single(a => a.InvestmentId == id));
-                _dbContext.SaveChanges();
+                var investment = await _dbContext.Investments.FindAsync(id);
+                if (investment == null)
+                    throw new KeyNotFoundException($"Investment with Id = {id} not found.");
+
+                _dbContext.Investments.Remove(investment);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw new Exception("Error deleting investment.", ex);
             }
         }
 
@@ -49,13 +53,11 @@ namespace InvestmentManagement.BusinessLayer.Services.Repository
         {
             try
             {
-                var result = _dbContext.Investments.
-                OrderByDescending(x => x.InvestmentId).Take(10).ToList();
-                return result;
+                return _dbContext.Investments.OrderByDescending(x => x.InvestmentId).Take(10).ToList();
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw new Exception("Error retrieving investments.", ex);
             }
         }
 
@@ -63,32 +65,38 @@ namespace InvestmentManagement.BusinessLayer.Services.Repository
         {
             try
             {
-                return await _dbContext.Investments.FindAsync(id);
+                var investment = await _dbContext.Investments.FindAsync(id);
+                if (investment == null)
+                    throw new KeyNotFoundException($"Investment with Id = {id} not found.");
+
+                return investment;
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw new Exception("Error retrieving investment.", ex);
             }
         }
+
         public async Task<Investment> UpdateInvestment(InvestmentViewModel model)
         {
-            var Investment = await _dbContext.Investments.FindAsync(model.InvestmentId);
             try
             {
-                Investment.InvestmentStartDate = model.InvestmentStartDate;
-                Investment.InvestmentName = model.InvestmentName;
-                Investment.InitialInvestmentAmount = model.InitialInvestmentAmount;
-                Investment.CurrentValue = model.CurrentValue;
-                Investment.InvestmentId = model.InvestmentId;
-                Investment.InvestmentId = model.InvestmentId;
+                var investment = await _dbContext.Investments.FindAsync(model.InvestmentId);
+                if (investment == null)
+                    throw new KeyNotFoundException($"Investment with Id = {model.InvestmentId} not found.");
 
-                _dbContext.Investments.Update(Investment);
+                investment.InvestmentName = model.InvestmentName;
+                investment.InitialInvestmentAmount = model.InitialInvestmentAmount;
+                investment.InvestmentStartDate = model.InvestmentStartDate;
+                investment.CurrentValue = model.CurrentValue;
+
+                _dbContext.Investments.Update(investment);
                 await _dbContext.SaveChangesAsync();
-                return Investment;
+                return investment;
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw new Exception("Error updating investment.", ex);
             }
         }
     }
